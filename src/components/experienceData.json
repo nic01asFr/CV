@@ -1,0 +1,127 @@
+[
+  {
+    "society": "Métropole Aix-Marseille-Provence",
+    "dates": "09/2021 - Présent",
+    "description": "",
+    "children":[
+      {
+        "poste": "Responsable de l'Unité Méthodes de Maintenance et Energies",
+        "start": "03/2023",
+        "end": "Présent",
+
+        "description": ""
+      },
+      {
+        "poste": "Technicien maintenance",
+        "start": "09/2021",
+        "end": "03/2023",
+
+        "description": ""
+      }
+    ]
+  },
+  {
+    "society": "Direction Interdépartementale des Routes d'Ile de France",
+    "start": "09/2018",
+    "end": "09/2021",
+
+    "description": "",
+    "children":[
+      {
+        "poste": "Responsable maintenance",
+        "start": "09/2018",
+        "end": "09/2021",
+
+        "description": ""
+      }
+    ]
+  },
+  {
+    "society": "Ville de Marseille",
+    "start": "04/2018",
+    "end": "09/2018",
+
+    "description": "",
+    "children":[
+      {
+        "poste": "Stagiaire Service Environnement",
+        "start": "04/2018",
+        "end": "09/2018",
+
+        "description": ""
+      }
+    ]
+  },
+  {
+    "society": "École Nationale des Techniciens de l'Équipement",
+    "start": "09/2016",
+    "end": "04/2018",
+    "description": "",
+    "children":[
+      {
+        "poste": "Chargé de Projet en Aménagement Durable des Territoires",
+        "start": "09/2016",
+        "end": "04/2018",
+        "description": ""
+      }
+    ]
+  },
+
+  {
+    "society": "Caisse d'Allocations Familliales des Bouches du Rhône",
+    "start": "06/2015",
+    "end": "08/2016",
+    "description": "",
+    "children":[
+      {
+        "poste": "Agent du service courrier",
+        "start": "06/2015",
+        "end": "08/2016",
+        "description": ""
+      }
+    ]
+  },
+
+  {
+    "society": "Lycée Technologique de Chambéry Gaspard Monge",
+    "start": "09/2013",
+    "end": "04/2014",
+    "description": "",
+    "children":[
+      {
+        "poste": "Étudiant en 1ère année de BTS Traitement des matériaux",
+        "start": "09/2013",
+        "end": "04/2014",
+        "description": ""
+      }
+    ]
+  },
+
+  {
+    "society": "Faculté de Droit d'Aix en Provence",
+    "start": "09/2012",
+    "end": "06/2013",
+    "description": "",
+    "children":[
+      {
+        "poste": "Étudiant en 1ère année de Droit",
+        "start": "09/2012",
+        "end": "06/2013",
+        "description": ""
+      }
+    ]
+  },
+
+  {
+    "society": "École des pupilles de l'Air et de l'Espace",
+    "end": "06/2012",
+    "description": "",
+    "children":[
+      {
+        "poste": "Baccalauréat scientifique",
+        "end": "06/2012",
+        "description": ""
+      }
+    ]
+  }
+]
