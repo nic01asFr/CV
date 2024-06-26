@@ -1,0 +1,70 @@
+
+
+:root {
+  --primary-color: #a6c4ec;
+  --secondary-color: #e8afa4;
+  --text-color: #f4f4f4;
+  --light-text-color: #f4f4f4;
+  --background-color: #f4f4f4;
+}
+
+* {
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  width: 100%;
+}
+
+section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease;
+}
+
+h1, h2, h3 {
+  margin-bottom: 1.25rem;
+  color: var(--light-text-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--light-text-color);
+  border: none;
+  padding: 0.625rem 1.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+main{
+  background-color: var(--primary-color);
+}
+
+#contact > .container{
+  width: 50%;
+}
