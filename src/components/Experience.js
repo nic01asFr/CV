@@ -13,7 +13,8 @@ const ExperienceSection = styled.section`
 const TimelineContainer = styled.div`
   position: relative;
   max-width: 100%;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0 4rem;
   padding: 0rem 0;
 
 `;
