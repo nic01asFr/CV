@@ -71,15 +71,15 @@ function Skills() {
       canvas.width = 512;
       canvas.height = 512;
       const context = canvas.getContext('2d');
-      context.font = `bold ${400 * scale}px Arial`;
-      context.fillStyle = 'white';
+      context.font = `bold ${400 * scale}px Arial blue`;
+      context.fillStyle = 'red';
       context.textAlign = 'center';
       context.textBaseline = 'middle';
       context.fillText(skill, canvas.width / 2, canvas.height / 2);
       const texture = new THREE.CanvasTexture(canvas);
-      const spriteMaterial = new THREE.SpriteMaterial({ map: texture, transparent: true });
+      const spriteMaterial = new THREE.SpriteMaterial({ map: texture, transparent: true, color: 'red' });
       const sprite = new THREE.Sprite(spriteMaterial);
-      sprite.scale.set(30 * scale, 15 * scale, 1);
+      sprite.scale.set(60 * scale, 30 * scale, depth * 10 - 5 + 1); // Augmenté la taille du sprite
 
       mesh.add(sprite);
       scene.add(mesh);

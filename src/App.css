@@ -64,7 +64,3 @@ button:hover {
 main{
   background-color: var(--primary-color);
 }
-
-#contact > .container{
-  width: 50%;
-}

@@ -25,12 +25,15 @@ const ContactInfo = styled.div`
 `;
 
 const ContactLink = styled.a`
-  display: flex;
+  display: inline-flex;
+  flex-wrap: no-wrap;
+white-space: pre-line;
+  word-break: break-word;
   align-items: center;
   justify-content: center;
   color: var(--light-text-color);
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   transition: color 0.3s ease;
 
   &:hover {

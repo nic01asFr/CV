@@ -7,7 +7,7 @@ import experienceData from './experienceData.json';
 const ExperienceSection = styled.section`
   transform: translateY(0%);
   position: relative;
-  padding: 4.6rem 0;
+  padding: 4.7rem 0;
 `;
 
 const TimelineContainer = styled.div`
@@ -16,20 +16,25 @@ const TimelineContainer = styled.div`
   width: 100%;
   margin: 0 4rem;
   padding: 0rem 0;
-
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 0;
+  }
 `;
 
 const TimelineSVG = styled.svg`
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translateX(-50%) rotateZ(180deg);
+  transform: translateX(-50%) rotateZ(180deg) translateY(-1%);
   width: 100px;
   height: 100%;
   filter: blur(0.5px);
   padding-top: 2rem;
-  z-index: 10; // Assurez-vous que le SVG est au-dessus des autres éléments
-
+  z-index: 10;
+  @media (max-width: 768px) {
+    left: 5%;
+  }
 `;
 
 const TimelineItem = styled.div`
@@ -48,17 +53,19 @@ const TimelineItem = styled.div`
     left: 0;
     padding: 5rem 2rem ;
 
-  }
+  };
+
+  
 
   &.right {
     left: 50%;
     padding: 5rem 2rem ;
-  }
+  };
 
   &.visible {
     opacity: 1;
     transform: translateY(0);
-  }
+  };
 
   &::after {
     content: '';
@@ -68,15 +75,29 @@ const TimelineItem = styled.div`
     height: 1rem;
     background-color: var(--primary-color);
     border-radius: 50%;
-  }
+  };
 
   &.left::after {
     right: -0.5rem;
-  }
+  };
 
   &.right::after {
     left: -0.5rem;
-  }
+  };
+  @media (max-width: 768px) {
+  width: 100%;
+  align-items: flex-start;
+  padding: 2rem 0.2rem 2rem 2.1rem;
+    &.left {
+  padding: 2rem 0.2rem 2rem 2.1rem;
+    width: 100%;
+  };
+  &.right {
+    left: 0;
+      width: 100%;
+  padding: 1.5rem 0.2rem 1.5rem 2.1rem;
+  };
+}
 `;
 
 const TimelineContent = styled.div`
@@ -98,6 +119,19 @@ const TimelineContent = styled.div`
     &.left{
   align-items: flex-start;
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+
+    &.right {
+        width: 100%;
+      align-items: flex-start;
+      text-align: start;
+    }
+          &.left{
+    width: 100%;
+  }
+}
 `;
 
 const ChildItem = styled.div`
@@ -121,6 +155,21 @@ const ChildItem = styled.div`
       &.left{
     align-items: flex-start;
     }
+          @media (max-width: 768px) {
+  width: 100%;
+  margin-top: 1em;
+
+  &.right {
+  text-align: start;
+  margin-top: 1em;
+  padding-left: 15px;
+  padding-right: 0px;
+  border-left: 2px solid var(--secondary-color);
+  border-right: 0px solid var(--secondary-color);
+  justify-content: flex-start;
+  align-items: flex-start;
+    }
+}
   `;
 
 const formatDate = (dateString) => {
