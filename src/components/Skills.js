@@ -129,7 +129,7 @@ function Skills() {
         }
 
         // Ajuster la position verticale basée sur le défilement
-        cloud.mesh.position.y += scrollSpeed * 0.03 * (1 - cloud.depth);
+        cloud.mesh.position.y += scrollSpeed * 0.03 * (1 - cloud.depth*1.2);
       });
 
       renderer.render(scene, camera);
