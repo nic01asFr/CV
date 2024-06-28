@@ -36,6 +36,8 @@ function Skills() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     mountRef.current.appendChild(renderer.domElement);
 
+    camera.position.z = 5;
+
     const loader = new SVGLoader();
     const paths = loader.parse(`<svg xmlns="http://www.w3.org/2000/svg"><path d="${cloudPath}"/></svg>`).paths;
 
@@ -43,7 +45,11 @@ function Skills() {
     const backgroundColorRGB = new THREE.Color(backgroundColorRaw);
 
     const createCloud = (skill, depth) => {
-      const scale = 0.00025 + Math.random() * 0.001;
+
+      const baseScale = 0.0005;
+      const minScale = 0.5;
+      const scaleMultiplier = minScale + (1 - minScale) * Math.pow(depth, 2);
+      const scale = baseScale * scaleMultiplier;
       const shape = paths[0].toShapes(true)[0];
       const geometry = new THREE.ShapeGeometry(shape);
       const material = new THREE.MeshBasicMaterial({
@@ -52,9 +58,10 @@ function Skills() {
         transparent: true,
         opacity: 0.4
       });
-      const mesh = new THREE.Mesh(geometry, material);
-      
+      const mesh = new THREE.Mesh(geometry, material);      
       mesh.scale.set(scale, scale, scale);
+
+      
 
       // Calculer la largeur du nuage
       const bbox = new THREE.Box3().setFromObject(mesh);
@@ -68,10 +75,11 @@ function Skills() {
       );
 
       const canvas = document.createElement('canvas');
-      canvas.width = 512;
-      canvas.height = 512;
+      canvas.width = 256;
+      canvas.height = 128;
       const context = canvas.getContext('2d');
-      context.font = `bold ${400 * scale}px Arial blue`;
+      const fontSize = Math.max(20, Math.floor(36 * scaleMultiplier));
+      context.font = `bold ${fontSize}px Arial blue`;
       context.fillStyle = 'red';
       context.textAlign = 'center';
       context.textBaseline = 'middle';
@@ -79,9 +87,16 @@ function Skills() {
       const texture = new THREE.CanvasTexture(canvas);
       const spriteMaterial = new THREE.SpriteMaterial({ map: texture, transparent: true, color: 'red' });
       const sprite = new THREE.Sprite(spriteMaterial);
-      sprite.scale.set(60 * scale, 30 * scale, depth * 10 - 5 + 1); // Augmenté la taille du sprite
+      const textScale = 4 * scale / baseScale;
+      sprite.scale.set(textScale, textScale * 0.5, 1);
 
+      const box = new THREE.Box3().setFromObject(mesh);
+      const cloudCenter = new THREE.Vector3();
+      box.getCenter(cloudCenter);
+
+      sprite.position.set(cloudCenter.x, cloudCenter.y, 0.1);
       mesh.add(sprite);
+
       scene.add(mesh);
       return {
         mesh,
