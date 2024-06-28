@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Votre Application</title>
   
-  <!-- SystemJS -->
-  <script src="https://unpkg.com/systemjs@6.10.3/dist/system.min.js"></script>
-
   <!-- React -->
   <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
@@ -23,21 +20,6 @@
 </head>
 <body>
   <div id="root"></div>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      System.config({
-        map: {
-          'react': 'https://unpkg.com/react@17/umd/react.production.min.js',
-          'react-dom': 'https://unpkg.com/react-dom@17/umd/react-dom.production.min.js',
-          'styled-components': 'https://unpkg.com/styled-components/dist/styled-components.min.js',
-          'react-scroll-parallax': 'https://unpkg.com/react-scroll-parallax@3.3.2/dist/react-scroll-parallax.min.js'
-        }
-      });
 
-      System.import('./index.js').catch(function(err) {
-        console.error(err);
-      });
-    });
-  </script>
 </body>
 </html>
