@@ -23,7 +23,7 @@ function Skills() {
   const rendererRef = useRef(null);
 
   useEffect(() => {
-    const skills = ["JavaScript", "React", "Node.js", "HTML5", "CSS3", "Git", "Blender", "QGIS"];
+    const skills = ["JavaScript", "React", "Node.js", "HTML5", "CSS3", "Git", "Blender", "QGIS", "Excel", "TCD"];
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
@@ -36,7 +36,7 @@ function Skills() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     mountRef.current.appendChild(renderer.domElement);
 
-    camera.position.z = 5;
+    camera.position.z = 20;
 
     const loader = new SVGLoader();
     const paths = loader.parse(`<svg xmlns="http://www.w3.org/2000/svg"><path d="${cloudPath}"/></svg>`).paths;
@@ -45,8 +45,9 @@ function Skills() {
     const backgroundColorRGB = new THREE.Color(backgroundColorRaw);
 
     const createCloud = (skill, depth) => {
+      const group = new THREE.Group();
 
-      const baseScale = 0.0005;
+      const baseScale = 0.0008;
       const minScale = 0.5;
       const scaleMultiplier = minScale + (1 - minScale) * Math.pow(depth, 2);
       const scale = baseScale * scaleMultiplier;
@@ -60,34 +61,23 @@ function Skills() {
       });
       const mesh = new THREE.Mesh(geometry, material);      
       mesh.scale.set(scale, scale, scale);
-
-      
-
-      // Calculer la largeur du nuage
-      const bbox = new THREE.Box3().setFromObject(mesh);
-      const width = bbox.max.x - bbox.min.x;
-      
-      // Positionner le nuage avec son bord droit au bord gauche du canvas
-      mesh.position.set(
-        width / 2 + window.innerWidth / 2,
-        Math.random() * 30 - 15,
-        depth * 10 - 5
-      );
+      group.add(mesh);
 
       const canvas = document.createElement('canvas');
-      canvas.width = 256;
-      canvas.height = 128;
+      canvas.width = 512;
+      canvas.height = 256;
       const context = canvas.getContext('2d');
-      const fontSize = Math.max(20, Math.floor(36 * scaleMultiplier));
-      context.font = `bold ${fontSize}px Arial blue`;
-      context.fillStyle = 'red';
+      const fontSize = Math.max(32, Math.floor(72 * scaleMultiplier));
+      const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
+      context.font = `bold ${fontSize}px Arial`;
+      context.fillStyle = primaryColor;
       context.textAlign = 'center';
       context.textBaseline = 'middle';
       context.fillText(skill, canvas.width / 2, canvas.height / 2);
       const texture = new THREE.CanvasTexture(canvas);
-      const spriteMaterial = new THREE.SpriteMaterial({ map: texture, transparent: true, color: 'red' });
+      const spriteMaterial = new THREE.SpriteMaterial({ map: texture, transparent: true });
       const sprite = new THREE.Sprite(spriteMaterial);
-      const textScale = 4 * scale / baseScale;
+      const textScale = 10 * scale / baseScale;
       sprite.scale.set(textScale, textScale * 0.5, 1);
 
       const box = new THREE.Box3().setFromObject(mesh);
@@ -95,11 +85,18 @@ function Skills() {
       box.getCenter(cloudCenter);
 
       sprite.position.set(cloudCenter.x, cloudCenter.y, 0.1);
-      mesh.add(sprite);
+      group.add(sprite);
 
-      scene.add(mesh);
+      const width = box.max.x - box.min.x;
+      group.position.set(
+        width / 2 + window.innerWidth / 2,
+        Math.random() * 30 - 15,
+        depth * 10 - 5
+      );
+
+      scene.add(group);
       return {
-        mesh,
+        group,
         speed: 0.01 + (1 - depth) * 0.05,
         depth,
         width
@@ -120,8 +117,6 @@ function Skills() {
       addNewCloud();
     }
 
-    camera.position.z = 20;
-
     let lastScrollY = window.scrollY;
     let scrollSpeed = 0;
 
@@ -134,17 +129,17 @@ function Skills() {
       lastScrollY = currentScrollY;
 
       cloudsRef.current.forEach((cloud) => {
-        cloud.mesh.position.x += cloud.speed * (1 - (1 - cloud.depth*1.5));
+        cloud.group.position.x += cloud.speed * (1 - (1 - cloud.depth*1.2));
 
         // Vérifier si le bord droit du nuage a atteint le bord droit du canvas
-        if (cloud.mesh.position.x > cloud.width * 9) {
+        if (cloud.group.position.x > cloud.width * 9) {
           // Repositionner le nuage à gauche
-          cloud.mesh.position.x = -cloud.width * 9;
-          cloud.mesh.position.y = Math.random() * 30 - 15;
+          cloud.group.position.x = -cloud.width * 9;
+          cloud.group.position.y = Math.random() * 30 - 15;
         }
 
         // Ajuster la position verticale basée sur le défilement
-        cloud.mesh.position.y += scrollSpeed * 0.03 * (1 - cloud.depth*1.2);
+        cloud.group.position.y += scrollSpeed * 0.03 * (1 - cloud.depth);
       });
 
       renderer.render(scene, camera);
@@ -162,7 +157,6 @@ function Skills() {
 
     return () => {
       if (mountRef.current) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         mountRef.current.removeChild(renderer.domElement);
       }
       window.removeEventListener('resize', handleResize);
