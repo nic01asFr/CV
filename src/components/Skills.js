@@ -13,7 +13,6 @@ const SkillsContainer = styled.div`
   height: 100vh;
   pointer-events: none;
   z-index: 1;
-  color: var(--primary-color);
   background: transparent;
 `;
 
