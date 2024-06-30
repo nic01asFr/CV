@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useState, useCallback, useContext } from 'react';
 import { Parallax, useParallax } from 'react-scroll-parallax';
 import styled from 'styled-components';
 import experienceData from './experienceData.json';
-
+import { SkillsContext } from './SkillsContext';
 
 const ExperienceSection = styled.section`
   transform: translateY(0%);
@@ -52,20 +52,17 @@ const TimelineItem = styled.div`
   &.left {
     left: 0;
     padding: 5rem 2rem ;
-
-  };
-
-  
+  }
 
   &.right {
     left: 50%;
     padding: 5rem 2rem ;
-  };
+  }
 
   &.visible {
     opacity: 1;
     transform: translateY(0);
-  };
+  }
 
   &::after {
     content: '';
@@ -75,29 +72,28 @@ const TimelineItem = styled.div`
     height: 1rem;
     background-color: var(--primary-color);
     border-radius: 50%;
-  };
+  }
 
   &.left::after {
     right: -0.5rem;
-  };
+  }
 
   &.right::after {
     left: -0.5rem;
-  };
+  }
+
   @media (max-width: 768px) {
-  width: 100%;
-  align-items: flex-start;
-  padding: 2rem 0.2rem 2rem 2.1rem;
-    &.left {
-  padding: 2rem 0.2rem 2rem 2.1rem;
     width: 100%;
-  };
-  &.right {
-    left: 0;
+    align-items: flex-start;
+    padding: 2rem 0.2rem 2rem 2.1rem;
+    &.left, &.right {
+      padding: 2rem 0.2rem 2rem 2.1rem;
       width: 100%;
-  padding: 1.5rem 0.2rem 1.5rem 2.1rem;
-  };
-}
+    }
+    &.right {
+      left: 0;
+    }
+  }
 `;
 
 const TimelineContent = styled.div`
@@ -112,26 +108,24 @@ const TimelineContent = styled.div`
   backdrop-filter: blur(3px);
   padding: 1rem;
 
-    &.right{
-  align-items: flex-end;
-  text-align: end;
+  &.right {
+    align-items: flex-end;
+    text-align: end;
   }
-    &.left{
-  align-items: flex-start;
+
+  &.left {
+    align-items: flex-start;
   }
 
   @media (max-width: 768px) {
     width: 100%;
 
-    &.right {
-        width: 100%;
+    &.right, &.left {
+      width: 100%;
       align-items: flex-start;
       text-align: start;
     }
-          &.left{
-    width: 100%;
   }
-}
 `;
 
 const ChildItem = styled.div`
@@ -143,34 +137,51 @@ const ChildItem = styled.div`
   align-items: flex-start;
   flex-direction: column;
 
-  &.right{
+  &.right {
     align-items: flex-end;
     text-align: end;
     padding-left: 0px;
     padding-right: 15px;
     border-left: 0px solid var(--secondary-color);
     border-right: 2px solid var(--secondary-color);
+  }
 
-    }
-      &.left{
+  &.left {
     align-items: flex-start;
-    }
-          @media (max-width: 768px) {
-  width: 100%;
-  margin-top: 1em;
+  }
 
-  &.right {
-  text-align: start;
-  margin-top: 1em;
-  padding-left: 15px;
-  padding-right: 0px;
-  border-left: 2px solid var(--secondary-color);
-  border-right: 0px solid var(--secondary-color);
-  justify-content: flex-start;
-  align-items: flex-start;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-top: 1em;
+
+    &.right, &.left {
+      text-align: start;
+      margin-top: 1em;
+      padding-left: 15px;
+      padding-right: 0px;
+      border-left: 2px solid var(--secondary-color);
+      border-right: 0px solid var(--secondary-color);
+      justify-content: flex-start;
+      align-items: flex-start;
     }
-}
-  `;
+  }
+`;
+
+const CompetencesList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+`;
+
+const CompetenceItem = styled.li`
+  background-color: var(--secondary-color);
+  color: var(--light-text-color);
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 15px;
+  display: inline-block;
+  font-size: 0.9em;
+`;
 
 const formatDate = (dateString) => {
   if (!dateString) return '';
@@ -196,10 +207,12 @@ const ExperienceTimeline = () => {
     endScroll: 1000
   });
 
+  const { setSelectedSkills } = useContext(SkillsContext);
+
   const createSinePath = (height) => {
-    const amplitude = 20; // Ajustez pour plus ou moins de courbure
-    const frequency = 0.01; // Ajustez pour plus ou moins d'ondulations
-    let d = `M50 0`; // Commencez au milieu en haut
+    const amplitude = 20;
+    const frequency = 0.01;
+    let d = `M50 0`;
     for (let y = 0; y <= height; y += 10) {
       const x = 50 + Math.sin(y * frequency) * amplitude;
       d += ` L${x} ${y}`;
@@ -222,13 +235,8 @@ const ExperienceTimeline = () => {
     if (svgRef.current) {
       const path = svgRef.current.querySelector('path');
       const length = path.getTotalLength();
-      /*const sectionRect = sectionRef.current.getBoundingClientRect();
-      const scrollPercentage = Math.max(0, Math.min(1, 1 - sectionRect.top / window.innerHeight));
-      const newOffset = length * (1 - scrollPercentage);
-      path.style.strokeDashoffset = newOffset;*/
-
       const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight));
-      const drawLength = length * ( scrollPercentage);
+      const drawLength = length * (scrollPercentage);
       path.style.strokeDashoffset = drawLength;
     }
   }, []);
@@ -260,6 +268,19 @@ const ExperienceTimeline = () => {
     };
   }, [updateSVGPath, animateSVGPath]);
 
+  const handleItemClick = (competences) => {
+    setSelectedSkills(competences);
+  };
+
+  const formatDescription = (description) => {
+    return description.split('\n').map((line, index) => (
+      <React.Fragment key={index}>
+        {line}
+        {index < description.split('\n').length - 1 && <br />}
+      </React.Fragment>
+    ));
+  };
+
   return (
     <div ref={parallax.ref}>
       <ExperienceSection id="experience" className="experience-section" ref={sectionRef}>
@@ -278,9 +299,9 @@ const ExperienceTimeline = () => {
               data-index={index}
             >
               <Parallax translateY={[20, -20]} opacity={[0.5, 1]} startScroll={0} endScroll={500}>
-
                 <TimelineContent
                   className={`timeline-content ${index % 2 === 0 ? 'left' : 'right'}`}
+                  onClick={() => handleItemClick(exp.children[0].compétences)}
                 >
                   <h3>{exp.society}</h3>
                   {exp.children.length > 1 && (
@@ -291,12 +312,18 @@ const ExperienceTimeline = () => {
                     <ChildItem 
                       className={`timeline-childItem ${index % 2 === 0 ? 'left' : 'right'}`}
                       key={childIndex}
+                      onClick={() => handleItemClick(child.compétences)}
                     >
                       <h4>{child.poste}</h4>
                       {exp.children.length === 1 && (
                         <p>{`${formatDate(child.start)} - ${formatDate(child.end || 'Présent')}`}</p>
                       )}
-                      <p>{child.description}</p>
+                      <p>{formatDescription(child.description)}</p>
+                      <CompetencesList>
+                        {child.compétences.map((comp, compIndex) => (
+                          <CompetenceItem key={compIndex}>{comp}</CompetenceItem>
+                        ))}
+                      </CompetencesList>
                     </ChildItem>
                   ))}
                 </TimelineContent>
