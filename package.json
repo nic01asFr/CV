@@ -13,9 +13,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "d3": "^7.9.0",
     "git": "^0.1.5",
-    "parallax-js": "^3.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-intersection-observer": "^9.10.3",
@@ -23,7 +21,6 @@
     "react-scroll-parallax": "^3.4.5",
     "styled-components": "^6.1.11",
     "three": "^0.165.0",
-    "vis-timeline": "^7.7.3",
     "vivus": "^0.4.6",
     "web-vitals": "^2.1.4"
   },
