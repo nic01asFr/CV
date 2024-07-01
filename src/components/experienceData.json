@@ -3,20 +3,20 @@
     "society": "Métropole Aix-Marseille-Provence",
     "dates": "09/2021 - Présent",
     "description": "",
-    "children":[
+    "children": [
       {
         "poste": "Responsable de l'Unité Méthodes de Maintenance et Energies",
         "start": "03/2023",
         "end": "Présent",
-
-        "description": ""
+        "description": "au Service de Gestion du Patrimoine Immobilier,\nPilotage des missions venant en support à l'exploitation des bâtiments\n",
+        "compétences": ["Power Automate", "SharePoint", "Teams", "Lists", "Excel"]
       },
       {
         "poste": "Technicien maintenance",
         "start": "09/2021",
         "end": "03/2023",
-
-        "description": ""
+        "description": "à la Division Maintenance des Bâtiments,\nPilotage de la maintenance des 144 bâtiments métropolitains du secteur de Marseille",
+        "compétences": ["Power Automate", "Excel", "Blender"]
       }
     ]
   },
@@ -24,15 +24,14 @@
     "society": "Direction Interdépartementale des Routes d'Ile de France",
     "start": "09/2018",
     "end": "09/2021",
-
     "description": "",
-    "children":[
+    "children": [
       {
         "poste": "Responsable maintenance",
         "start": "09/2018",
         "end": "09/2021",
-
-        "description": ""
+        "description": "à l'Unité Politique de Maintenance et Modernisation\ndu Département Exploitation Trafic et Tunnels,\nDéfinition et mise en oeuvre des politiques de maintenance des tunnels",
+        "compétences": ["Excel", "Tableaux croisés dynamiques", "GMAO", "SQL", "Bases de données", "Python"]
       }
     ]
   },
@@ -40,15 +39,14 @@
     "society": "Ville de Marseille",
     "start": "04/2018",
     "end": "09/2018",
-
     "description": "",
-    "children":[
+    "children": [
       {
-        "poste": "Stagiaire Service Environnement",
+        "poste": "Stagiaire",
         "start": "04/2018",
         "end": "09/2018",
-
-        "description": ""
+        "description": "au Service Environnement,\nRéalisation et présentation d'une cartographie du potentiel de dispersion de la biodiversité en ville",
+        "compétences": ["QGIS", "PowerPoint"]
       }
     ]
   },
@@ -57,70 +55,71 @@
     "start": "09/2016",
     "end": "04/2018",
     "description": "",
-    "children":[
+    "children": [
       {
         "poste": "Chargé de Projet en Aménagement Durable des Territoires",
         "start": "09/2016",
         "end": "04/2018",
-        "description": ""
+        "description": "",
+        "compétences": ["QGIS"]
       }
     ]
   },
-
   {
     "society": "Caisse d'Allocations Familliales des Bouches du Rhône",
     "start": "06/2015",
     "end": "08/2016",
     "description": "",
-    "children":[
+    "children": [
       {
-        "poste": "Agent du service courrier",
+        "poste": "Agent polyvalent",
         "start": "06/2015",
         "end": "08/2016",
-        "description": ""
+        "description": "au Service Courrier,\nRéception, classification et ventilation du courrier",
+        "compétences": []
       }
     ]
   },
-
   {
     "society": "Lycée Technologique de Chambéry Gaspard Monge",
     "start": "09/2013",
     "end": "04/2014",
     "description": "",
-    "children":[
+    "children": [
       {
         "poste": "Étudiant en 1ère année de BTS Traitement des matériaux",
         "start": "09/2013",
         "end": "04/2014",
-        "description": ""
+        "description": "",
+        "compétences": []
       }
     ]
   },
-
   {
     "society": "Faculté de Droit d'Aix en Provence",
     "start": "09/2012",
     "end": "06/2013",
     "description": "",
-    "children":[
+    "children": [
       {
         "poste": "Étudiant en 1ère année de Droit",
         "start": "09/2012",
         "end": "06/2013",
-        "description": ""
+        "description": "",
+        "compétences": []
       }
     ]
   },
-
   {
     "society": "École des pupilles de l'Air et de l'Espace",
     "end": "06/2012",
     "description": "",
-    "children":[
+    "children": [
       {
         "poste": "Baccalauréat scientifique",
         "end": "06/2012",
-        "description": ""
+        "description": "",
+        "compétences": []
       }
     ]
   }

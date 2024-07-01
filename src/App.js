@@ -6,6 +6,7 @@ import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { SkillsProvider } from './components/SkillsContext';
 import './App.css';
 
 function App() {
@@ -14,18 +15,20 @@ function App() {
   }, []);
 
   return (
-    <ParallaxProvider>
-      <div className="App">
-      <Skills />
-        <Footer />
-        <main>
-          <Contact />
-          <Experience />
-          <Home />
-        </main>
-        <Header />
-      </div>
-    </ParallaxProvider>
+    <SkillsProvider>
+      <ParallaxProvider>
+        <div className="App">
+          <Skills />
+          <Footer />
+          <main>
+            <Contact />
+            <Experience />
+            <Home />
+          </main>
+          <Header />
+        </div>
+      </ParallaxProvider>
+    </SkillsProvider>
   );
 }
 

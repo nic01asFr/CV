@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Parallax } from 'react-scroll-parallax';
 import CloudAnimation from './CloudAnimation';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import CVPdf from './CVPdf';
 
 
 const ContactSection = styled.section`
@@ -25,12 +27,15 @@ const ContactInfo = styled.div`
 `;
 
 const ContactLink = styled.a`
-  display: flex;
+  display: inline-flex;
+  flex-wrap: no-wrap;
+white-space: pre-line;
+  word-break: break-word;
   align-items: center;
   justify-content: center;
   color: var(--light-text-color);
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   transition: color 0.3s ease;
 
   &:hover {
@@ -61,6 +66,21 @@ const SocialIconLink = styled(ContactLink)`
   max-width: none;
 `;
 
+const DownloadButton = styled.button`
+  background-color: var(--secondary-color);
+  color: var(--light-text-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--primary-color-dark);
+  }
+`;
+
 function Contact() {
   return (
     <Parallax translateY={[0, -50]} opacity={[1, 0]} startScroll={0} endScroll={500}>
@@ -85,6 +105,15 @@ function Contact() {
                 <FontAwesomeIcon icon={["fab", "linkedin"]} className="icon" />
               </SocialIconLink>
             </SocialIconsContainer>
+            <PDFDownloadLink document={<CVPdf />} fileName="nicolas_laval_cv.pdf">
+              {({ blob, url, loading, error }) =>
+                loading ? 'Chargement du document...' : (
+                  <DownloadButton>
+                    Télécharger CV (PDF)
+                  </DownloadButton>
+                )
+              }
+            </PDFDownloadLink>
           </ContactInfo>
         </div>
       </ContactSection>
