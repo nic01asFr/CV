@@ -4,7 +4,7 @@ import experienceData from './experienceData.json';
 
 import profileImage from '../ressources/ProfileImage.jpg';
 
-import qrCodeImage from '../ressources/QrCode.png';
+import qrCodeImage from '../ressources/qrcode.png';
 
 const styles = StyleSheet.create({
   page: {

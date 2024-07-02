@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Parallax } from 'react-scroll-parallax';
 import CloudAnimation from './CloudAnimation';
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import CVPdf from './CVPdf';
+import CVPdf from './CVpdf.js';
 
 
 const ContactSection = styled.section`
