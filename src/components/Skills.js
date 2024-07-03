@@ -119,7 +119,7 @@ function Skills() {
       scene.add(group);
       return {
         group,
-        speed: 0.01 + (1 - depth) * 0.05,
+        speed: 0.006 + (1 - depth) * 0.005,
         depth,
         width,
         skill
@@ -155,9 +155,9 @@ function Skills() {
         cloud.group.position.x += cloud.speed * (1 - (1 - cloud.depth*1.2));
 
         // Check if the right edge of the cloud has reached the right edge of the canvas
-        if (cloud.group.position.x > cloud.width * 9) {
+        if (cloud.group.position.x > cloud.width * 8) {
           // Reposition the cloud to the left
-          cloud.group.position.x = -cloud.width * 9;
+          cloud.group.position.x = -cloud.width * 8;
           cloud.group.position.y = Math.random() * 30 - 15;
         }
 

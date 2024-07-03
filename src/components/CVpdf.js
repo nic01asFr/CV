@@ -4,7 +4,7 @@ import experienceData from './experienceData.json';
 
 import profileImage from '../ressources/ProfileImage.jpg';
 
-import qrCodeImage from '../ressources/qrcode.png';
+import qrCodeImage from '../ressources/QrCode.png';
 
 const styles = StyleSheet.create({
   page: {
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     color: '#a6c4ec',
   },
   leftSectionTitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
     color: '#FFFFFF',
@@ -123,8 +123,8 @@ const CVPdf = () => (
         <View style={{marginBottom: 20}}>
           <Text style={styles.sectionTitle}>Profil</Text>
           <Text style={styles.jobDescription}>
-            Développeur web passionné, spécialisé dans les technologies front-end modernes et le développement Python. 
-            Fort d'une expérience variée, je suis à la recherche de nouveaux défis pour mettre en pratique et développer mes compétences.
+            Apprenti développeur passionné, spécialisé dans l'utilisation du bon outil'. 
+            Fort d'une expérience variée, je suis à la recherche de nouveaux défis pour développer et mettre en pratique mes compétences.
           </Text>
         </View>
         

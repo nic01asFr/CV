@@ -9,10 +9,10 @@
   --background-color: #f4f4f4;
   --background-color-dark: #e8afa4;
 
+
 }
 
 * {
-
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -20,9 +20,12 @@
 
 html{
   overflow-x: hidden;
+  scrollbar-width: none;
+  scrollbar-color: #F4F4F4 var(--primary-color);
 }
 
 body {
+
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
   color: var(--text-color);
@@ -65,5 +68,6 @@ button:hover {
 }
 
 main{
+
   background-color: var(--primary-color);
 }

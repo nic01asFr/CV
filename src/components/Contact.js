@@ -5,7 +5,7 @@ import { Parallax } from 'react-scroll-parallax';
 import CloudAnimation from './CloudAnimation';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import CVPdf from './CVpdf.js';
-
+import MotivationLetterPDF from './MotivationLetterPDF';
 
 const ContactSection = styled.section`
   min-height: calc(100vh);
@@ -29,7 +29,7 @@ const ContactInfo = styled.div`
 const ContactLink = styled.a`
   display: inline-flex;
   flex-wrap: no-wrap;
-white-space: pre-line;
+  white-space: pre-line;
   word-break: break-word;
   align-items: center;
   justify-content: center;
@@ -57,7 +57,6 @@ const SocialIconsContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 20px;
-
 `;
 
 const SocialIconLink = styled(ContactLink)`
@@ -79,6 +78,12 @@ const DownloadButton = styled.button`
   &:hover {
     background-color: var(--primary-color-dark);
   }
+`;
+
+const DownloadButtonsContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 `;
 
 function Contact() {
@@ -105,15 +110,26 @@ function Contact() {
                 <FontAwesomeIcon icon={["fab", "linkedin"]} className="icon" />
               </SocialIconLink>
             </SocialIconsContainer>
-            <PDFDownloadLink document={<CVPdf />} fileName="nicolas_laval_cv.pdf">
-              {({ blob, url, loading, error }) =>
-                loading ? 'Chargement du document...' : (
-                  <DownloadButton>
-                    Télécharger CV (PDF)
-                  </DownloadButton>
-                )
-              }
-            </PDFDownloadLink>
+            <DownloadButtonsContainer>
+              <PDFDownloadLink document={<CVPdf />} fileName="nicolas_laval_cv.pdf">
+                {({ blob, url, loading, error }) =>
+                  loading ? 'Chargement du document...' : (
+                    <DownloadButton>
+                      Télécharger CV (PDF)
+                    </DownloadButton>
+                  )
+                }
+              </PDFDownloadLink>
+              <PDFDownloadLink document={<MotivationLetterPDF />} fileName="nicolas_laval_lettre_motivation.pdf">
+                {({ blob, url, loading, error }) =>
+                  loading ? 'Chargement du document...' : (
+                    <DownloadButton>
+                      Télécharger Lettre de Motivation (PDF)
+                    </DownloadButton>
+                  )
+                }
+              </PDFDownloadLink>
+            </DownloadButtonsContainer>
           </ContactInfo>
         </div>
       </ContactSection>
