@@ -61,7 +61,7 @@ function Home() {
     <ParallaxProvider>
       <HomeSection id="accueil">
         <ParallaxContent>
-          <Parallax translateY={['0%', '450%']} startScroll={100} endScroll={0}>
+          <Parallax translateY={['0%', '150%']} startScroll={100} endScroll={0}>
             <h1>Nicolas LAVAL</h1>
           </Parallax>
           <Parallax translateY={['0%', '200%']} startScroll={100} endScroll={0}>
