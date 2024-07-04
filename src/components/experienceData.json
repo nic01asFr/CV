@@ -8,7 +8,7 @@
         "poste": "Responsable de l'Unité Méthodes de Maintenance et Energies",
         "start": "03/2023",
         "end": "Présent",
-        "description": "au Service de Gestion du Patrimoine Immobilier,\nPilotage des missions venant en support à l'exploitation des bâtiments\n",
+        "description": "au Service de Gestion du Patrimoine Immobilier,\nPilotage de l'équipe en support à l'exploitation des bâtiments\n",
         "compétences": ["Power Automate", "SharePoint", "Teams", "Lists", "Excel"]
       },
       {
@@ -16,7 +16,7 @@
         "start": "09/2021",
         "end": "03/2023",
         "description": "à la Division Maintenance des Bâtiments,\nPilotage de la maintenance des 144 bâtiments métropolitains du secteur de Marseille",
-        "compétences": ["Power Automate", "Excel", "Blender"]
+        "compétences": ["Power Automate", "Excel", "Tableaux croisés dynamiques", "Blender"]
       }
     ]
   },
@@ -31,7 +31,7 @@
         "start": "09/2018",
         "end": "09/2021",
         "description": "à l'Unité Politique de Maintenance et Modernisation\ndu Département Exploitation Trafic et Tunnels,\nDéfinition et mise en oeuvre des politiques de maintenance des tunnels",
-        "compétences": ["Excel", "Tableaux croisés dynamiques", "GMAO", "SQL", "Bases de données", "Python"]
+        "compétences": ["GMAO", "SQL", "Bases de données", "Excel", "Tableaux croisés dynamiques", "Python"]
       }
     ]
   },

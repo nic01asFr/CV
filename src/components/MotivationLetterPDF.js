@@ -1,6 +1,6 @@
 import React from 'react';
 import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer';
-import signatureImage from '../ressources/signature.png'; // Assurez-vous que le chemin est correct
+import signatureImage from '../ressources/signature.png';
 
 const styles = StyleSheet.create({
   page: {
@@ -74,10 +74,11 @@ const MotivationLetterPDF = () => (
     <Page size="A4" style={styles.page}>
       <View style={styles.header}>
         <Text style={styles.name}>Nicolas LAVAL</Text>
-        <Text style={styles.contact}>06 16 94 00 53</Text>
+        <Text style={styles.contact}>5 Bd Camilla FLammarion</Text>
+        <Text style={styles.contact}>13001 MARSEILLE</Text>
         <Text style={styles.contact}>laval.nicolas13@gmail.com</Text>
-        <Text style={styles.contact}>github.com/Nic01asFr</Text>
-        <Text style={styles.contact}>linkedin.com/in/nic01asFr</Text>
+        <Text style={styles.contact}>06 16 94 00 53</Text>
+
       </View>
 
       <Text style={styles.date}>Le {new Date().toLocaleDateString('fr-FR')}</Text>

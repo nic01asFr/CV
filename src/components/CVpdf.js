@@ -102,13 +102,13 @@ const CVPdf = () => (
           <Text style={styles.leftSectionTitle}>Contact</Text>
           <Text style={styles.contactItem}>06 16 94 00 53</Text>
           <Text style={styles.contactItem}>laval.nicolas13@gmail.com</Text>
-          <Text style={styles.contactItem}>github.com/Nic01asFr</Text>
-          <Text style={styles.contactItem}>linkedin.com/in/nic01asFr</Text>
+          <Text style={styles.contactItem}>5 Bd Camille Flammarion</Text>
+          <Text style={styles.contactItem}>13001 MARSEILLE</Text>
         </View>
         
         <View>
           <Text style={styles.leftSectionTitle}>Compétences</Text>
-          {['HTML', 'CSS', 'JavaScript', 'React', 'Python', 'Git', 'LeafLet', 'NumPy', 'Pandas', 'TensorFlow', 'Blender', 'Gimp'].map((skill, index) => (
+          {['HTML', 'CSS', 'JavaScript', 'Python', 'Git', 'Permis B & A2'].map((skill, index) => (
             <Text key={index} style={styles.skillItem}>• {skill}</Text>
           ))}
         </View>
@@ -123,7 +123,7 @@ const CVPdf = () => (
         <View style={{marginBottom: 20}}>
           <Text style={styles.sectionTitle}>Profil</Text>
           <Text style={styles.jobDescription}>
-            Apprenti développeur passionné, spécialisé dans l'utilisation du bon outil'. 
+            Apprenti développeur, spécialisé dans l'utilisation du bon outil'. 
             Fort d'une expérience variée, je suis à la recherche de nouveaux défis pour développer et mettre en pratique mes compétences.
           </Text>
         </View>
