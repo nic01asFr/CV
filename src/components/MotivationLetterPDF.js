@@ -6,53 +6,51 @@ const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
     backgroundColor: '#FFFFFF',
-    padding: 50,
+    padding: 30,
     fontFamily: 'Helvetica',
   },
   header: {
-    marginBottom: 20,
+    marginBottom: 10,
   },
   name: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginBottom: 2,
   },
   contact: {
     fontSize: 10,
     color: '#666666',
-    marginBottom: 2,
+    marginBottom: 1,
   },
   recipient: {
-    marginTop: 30,
-    marginBottom: 20,
+    marginTop: 15,
+    marginBottom: 15,
   },
   recipientText: {
     fontSize: 11,
   },
   subject: {
-    fontSize: 11,
+    fontSize: 12,
     fontWeight: 'bold',
-    marginBottom: 20,
-
+    marginBottom: 10,
   },
   content: {
     fontSize: 11,
     lineHeight: 1.5,
   },
   paragraph: {
-    marginBottom: 10,
+    marginBottom: 8,
   },
   signatureContainer: {
-    marginTop: 30,
+    marginTop: 15,
     position: 'relative',
-    height: 60,
+    height: 40,
     alignSelf: 'flex-end',
-    transform: 'translateX(-150%)'
-
+    transform: 'translateX(-100%)'
   },
   signatureImage: {
     position: 'absolute',
-    width: 150,
+    width: 100,
     height: 'auto',
   },
   signatureText: {
@@ -60,12 +58,27 @@ const styles = StyleSheet.create({
     bottom: 0,
     fontSize: 11,
     fontWeight: 'bold',
-    
   },
   date: {
+    fontSize: 10,
+    color: '#666666',
+    paddingTop: 15,
+    marginTop: 15,
+    marginBottom: 5,
+  },
+  bulletPoint: {
+    width: 8,
     fontSize: 11,
-    marginTop: 30,
-    marginBottom: 20,
+    marginBottom: 4,
+
+  },
+  bulletItem: {
+    flexDirection: 'row',
+    marginBottom: 4,
+  },
+  bulletText: {
+    flex: 1,
+    fontSize: 11,
   },
 });
 
@@ -74,16 +87,13 @@ const MotivationLetterPDF = () => (
     <Page size="A4" style={styles.page}>
       <View style={styles.header}>
         <Text style={styles.name}>Nicolas LAVAL</Text>
-        <Text style={styles.contact}>5 Bd Camilla FLammarion</Text>
-        <Text style={styles.contact}>13001 MARSEILLE</Text>
-        <Text style={styles.contact}>laval.nicolas13@gmail.com</Text>
-        <Text style={styles.contact}>06 16 94 00 53</Text>
-
+        <Text style={styles.contact}>5 Bd Camille Flammarion, 13001 MARSEILLE</Text>
+        <Text style={styles.contact}>laval.nicolas13@gmail.com - 06 16 94 00 53</Text>
       </View>
 
-      <Text style={styles.date}>Le {new Date().toLocaleDateString('fr-FR')}</Text>
+      <Text style={styles.date}>Le {new Date().toLocaleDateString('fr-FR')},</Text>
 
-      <Text style={styles.subject}>Objet : Candidature pour une alternance en développement informatique</Text>
+      <Text style={styles.subject}>Objet : Candidature pour le poste en alternance - INGÉNIEUR MÉTHODES DE MAINTENANCE</Text>
 
       <View style={styles.recipient}>
         <Text style={styles.recipientText}>Madame, Monsieur,</Text>
@@ -91,31 +101,43 @@ const MotivationLetterPDF = () => (
 
       <View style={styles.content}>
         <Text style={styles.paragraph}>
-          À 30 ans, je me présente à vous avec un parcours atypique, fait d'expériences variées qui tiennent à un fil conducteur : la résolution de problèmes techniques par la recherche de l'outil adapté.
+          Votre recherche d'un alternant alliant expertise technique et vision territoriale a immédiatement retenu mon attention. C'est avec un vif intérêt que je vous soumets ma candidature pour le poste en alternance au sein de la Direction du Matériel Roulant du groupe RTM.
         </Text>
 
         <Text style={styles.paragraph}>
-          Tout au long de mon cheminement professionnel, j'ai constamment fait appel aux outils informatiques pour relever les défis qui m'étaient présentés. Cette approche m'a non seulement permis de résoudre efficacement diverses problématiques, mais a aussi révélé ma passion pour l'utilisation créative et pragmatique des technologies à disposition.
+          Aménageur de formation, je comprends pleinement l'importance de la thématique transports pour le territoire métropolitain et l'importance cruciale de la mission de service public que vous assurez au quotidien. Le poste que vous proposez en alternance me permet, du fait de mon âge, de bénéficier d'une formation diplômante tout en apportant mes connaissances et mon savoir-faire en termes d'organisation et de gestion de la maintenance, mais aussi mon expérience du fonctionnement des institutions territoriales.
         </Text>
 
         <Text style={styles.paragraph}>
-          Aujourd'hui, je souhaite franchir une nouvelle étape en me professionnalisant dans ce domaine. Mon objectif est d'acquérir les compétences nécessaires pour apporter des solutions robustes et innovantes aux enjeux techniques rencontrés par les entreprises.
+          Mes compétences en traitement de la donnée et en méthodes de maintenance seront des atouts précieux pour mener à bien les missions variées que vous proposez, notamment :
+        </Text>
+        <View style={styles.bulletItem}>
+          <Text style={styles.bulletPoint}>• </Text>
+          <Text style={styles.bulletText}>L'établissement et l'optimisation des plans de maintenance préventive</Text>
+        </View>
+        <View style={styles.bulletItem}>
+          <Text style={styles.bulletPoint}>• </Text>
+          <Text style={styles.bulletText}>La mise en place d'un projet de maintenance prédictive</Text>
+        </View>
+        <View style={styles.bulletItem}>
+          <Text style={styles.bulletPoint}>• </Text>
+          <Text style={styles.bulletText}>L'analyse de données et la création d'indicateurs pertinents</Text>
+        </View>
+
+        <Text style={styles.paragraph}>
+          Ma capacité à travailler en équipe et mes aptitudes relationnelles me permettront de m'intégrer rapidement au sein de votre service support Assistance Technique et de collaborer efficacement avec les différents intervenants. Mes compétences rédactionnelles et ma maîtrise de l'anglais technique seront également des atouts pour la rédaction de rapports et la communication avec les constructeurs et fournisseurs.
         </Text>
 
         <Text style={styles.paragraph}>
-          Ma capacité d'adaptation, ma curiosité naturelle et ma détermination à résoudre des problèmes complexes sont des atouts que je souhaite mettre au service de votre entreprise. Je suis prêt à m'investir pleinement dans cette nouvelle orientation professionnelle, avec l'enthousiasme et la maturité que mon parcours m'a apportés.
+          Je suis particulièrement motivé à l'idée de contribuer au développement des transports de la Ville en participant à la maintenance des nouveaux matériels roulants et en m'adaptant aux nouvelles méthodes de maintenance. Mon expérience en aménagement du territoire m'offre une perspective unique sur les enjeux de mobilité urbaine, que je serais ravi de mettre au service de votre équipe.
         </Text>
 
         <Text style={styles.paragraph}>
-          Je serais ravi de pouvoir échanger avec vous sur l'opportunité de mettre ma motivation et mon potentiel au profit de vos projets.
+          Je serais enchanté de pouvoir échanger avec vous sur la façon dont mon profil peut apporter une valeur ajoutée à votre Direction. Je vous remercie de l'attention que vous porterez à ma candidature et reste à votre disposition pour un entretien.
         </Text>
 
         <Text style={styles.paragraph}>
-          Je vous remercie de l'attention que vous porterez à ma candidature et reste à votre disposition pour un entretien.
-        </Text>
-
-        <Text style={styles.paragraph}>
-          Veuillez agréer, Madame, Monsieur, l'expression de mes salutations distinguées.
+          Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.
         </Text>
       </View>
 
@@ -126,6 +148,5 @@ const MotivationLetterPDF = () => (
     </Page>
   </Document>
 );
-
 
 export default MotivationLetterPDF;

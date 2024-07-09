@@ -4,8 +4,6 @@ import experienceData from './experienceData.json';
 
 import profileImage from '../ressources/ProfileImage.jpg';
 
-import qrCodeImage from '../ressources/QrCode.png';
-
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'row',
@@ -37,18 +35,20 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: 'medium',
-    marginBottom: 20,
+    marginBottom: 1,
+    wordBreak: 'keep-all',
   },
   sectionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 20,
     color: '#a6c4ec',
   },
   leftSectionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
+
     color: '#FFFFFF',
   },
   experienceItem: {
@@ -89,14 +89,21 @@ const styles = StyleSheet.create({
 
 const CVPdf = () => (
   <Document>
-    <Page size="A4" style={styles.page}>
+    <Page size="A4" style={styles.page} wrap={false}>
       <View style={styles.leftColumn}>
         <Image
           style={styles.profileImage}
           src={profileImage}
         />
-        <Text style={styles.name}>Nicolas LAVAL</Text>
-        <Text style={styles.title}>Apprenti développeur Web</Text>
+        <View style={{marginBottom: 20}}>
+          <Text style={styles.name}>Nicolas LAVAL</Text>
+          <Text style={styles.title}>Candidat au poste</Text>
+          <Text style={styles.title}>d'ingénieur</Text>
+          <Text style={styles.title}>méthodes de</Text>
+          <Text style={styles.title}>maintenance</Text>
+          <Text style={styles.title}>en alternance</Text>
+        </View>
+
         
         <View style={{marginBottom: 20}}>
           <Text style={styles.leftSectionTitle}>Contact</Text>
@@ -108,23 +115,18 @@ const CVPdf = () => (
         
         <View>
           <Text style={styles.leftSectionTitle}>Compétences</Text>
-          {['HTML', 'CSS', 'JavaScript', 'Python', 'Git', 'Permis B & A2'].map((skill, index) => (
+          {['Office','JavaScript', 'Python', 'Git', 'Permis B & A2'].map((skill, index) => (
             <Text key={index} style={styles.skillItem}>• {skill}</Text>
           ))}
         </View>
-        
-        <Image 
-          style={styles.qrCode}
-          src={qrCodeImage}
-        />
+
       </View>
       
       <View style={styles.rightColumn}>
         <View style={{marginBottom: 20}}>
           <Text style={styles.sectionTitle}>Profil</Text>
           <Text style={styles.jobDescription}>
-            Apprenti développeur, spécialisé dans l'utilisation du bon outil'. 
-            Fort d'une expérience variée, je suis à la recherche de nouveaux défis pour développer et mettre en pratique mes compétences.
+          Je cherche à mettre mes compétences en analyse et optimisation de la maintenance et ma connaissance des institutions territoriales au service de la RTM.
           </Text>
         </View>
         
