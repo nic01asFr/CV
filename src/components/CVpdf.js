@@ -96,7 +96,7 @@ const CVPdf = () => (
           src={profileImage}
         />
         <Text style={styles.name}>Nicolas LAVAL</Text>
-        <Text style={styles.title}>Apprenti développeur Web</Text>
+        <Text style={styles.title}>Candidat pour le poste en alternance - Direction du Matériel Roulant</Text>
         
         <View style={{marginBottom: 20}}>
           <Text style={styles.leftSectionTitle}>Contact</Text>
@@ -108,23 +108,18 @@ const CVPdf = () => (
         
         <View>
           <Text style={styles.leftSectionTitle}>Compétences</Text>
-          {['HTML', 'CSS', 'JavaScript', 'Python', 'Git', 'Permis B & A2'].map((skill, index) => (
+          {['Office','JavaScript', 'Python', 'Git', 'Permis B & A2'].map((skill, index) => (
             <Text key={index} style={styles.skillItem}>• {skill}</Text>
           ))}
         </View>
-        
-        <Image 
-          style={styles.qrCode}
-          src={qrCodeImage}
-        />
+
       </View>
       
       <View style={styles.rightColumn}>
         <View style={{marginBottom: 20}}>
           <Text style={styles.sectionTitle}>Profil</Text>
           <Text style={styles.jobDescription}>
-            Apprenti développeur, spécialisé dans l'utilisation du bon outil'. 
-            Fort d'une expérience variée, je suis à la recherche de nouveaux défis pour développer et mettre en pratique mes compétences.
+          Je cherche à mettre mes compétences en analyse et optimisation de la maintenance et ma connaissance des institutions territoriales au service de la RTM.
           </Text>
         </View>
         
