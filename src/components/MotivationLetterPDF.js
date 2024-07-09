@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   signatureText: {
     position: 'absolute',
     bottom: 0,
-    fontSize: 9,
+    fontSize: 11,
     fontWeight: 'bold',
   },
   date: {
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   },
   bulletPoint: {
     width: 8,
-    fontSize: 12,
+    fontSize: 11,
     marginBottom: 4,
 
   },
@@ -93,7 +93,7 @@ const MotivationLetterPDF = () => (
 
       <Text style={styles.date}>Le {new Date().toLocaleDateString('fr-FR')},</Text>
 
-      <Text style={styles.subject}>Objet : Candidature pour le poste en alternance - Direction du Matériel Roulant</Text>
+      <Text style={styles.subject}>Objet : Candidature pour le poste en alternance - INGÉNIEUR MÉTHODES DE MAINTENANCE</Text>
 
       <View style={styles.recipient}>
         <Text style={styles.recipientText}>Madame, Monsieur,</Text>
