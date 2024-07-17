@@ -123,7 +123,7 @@ const CVPdf = () => (
         <View style={{marginBottom: 20}}>
           <Text style={styles.sectionTitle}>Profil</Text>
           <Text style={styles.jobDescription}>
-            Apprenti développeur, spécialisé dans l'utilisation du bon outil'. 
+            Apprenti développeur, spécialisé dans l'utilisation du bon outil. 
             Fort d'une expérience variée, je suis à la recherche de nouveaux défis pour développer et mettre en pratique mes compétences.
           </Text>
         </View>
