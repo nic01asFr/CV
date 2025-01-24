@@ -83,7 +83,7 @@ const MotivationLetterPDF = () => (
 
       <Text style={styles.date}>Le {new Date().toLocaleDateString('fr-FR')}</Text>
 
-      <Text style={styles.subject}>Objet : Candidature pour une alternance en développement informatique</Text>
+      <Text style={styles.subject}>Objet : Candidature spontanée</Text>
 
       <View style={styles.recipient}>
         <Text style={styles.recipientText}>Madame, Monsieur,</Text>
