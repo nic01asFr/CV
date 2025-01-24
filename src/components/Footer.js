@@ -18,7 +18,7 @@ function Footer() {
   return (
     <FooterWrapper>
       <div className="container">
-        <p>&copy; 2024 Nic01asFr Tous droits réservés.</p>
+        <p>&copy; 2025 Nic01asFr Tous droits réservés.</p>
       </div>
     </FooterWrapper>
   );
