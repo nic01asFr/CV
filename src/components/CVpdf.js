@@ -96,7 +96,7 @@ const CVPdf = () => (
           src={profileImage}
         />
         <Text style={styles.name}>Nicolas LAVAL</Text>
-        <Text style={styles.title}>Apprenti développeur Web</Text>
+        <Text style={styles.title}>Technicien Méthodes & Innovation</Text>
         
         <View style={{marginBottom: 20}}>
           <Text style={styles.leftSectionTitle}>Contact</Text>
@@ -108,9 +108,19 @@ const CVPdf = () => (
         
         <View>
           <Text style={styles.leftSectionTitle}>Compétences</Text>
-          {['HTML', 'CSS', 'JavaScript', 'Python', 'Git', 'Permis B & A2'].map((skill, index) => (
-            <Text key={index} style={styles.skillItem}>• {skill}</Text>
-          ))}
+          {[
+          'Programmation',
+          'Automatisation', 
+          'Amélioration continue',
+          'KPIs et reporting',
+          'Gestion de projets',
+          'Analyse de données',
+          'Python',
+          'Veille technologique',
+          'Permis B & A2'
+          ].map((skill, index) => (
+                      <Text key={index} style={styles.skillItem}>• {skill}</Text>
+                    ))}
         </View>
         
         <Image 
@@ -123,13 +133,14 @@ const CVPdf = () => (
         <View style={{marginBottom: 20}}>
           <Text style={styles.sectionTitle}>Profil</Text>
           <Text style={styles.jobDescription}>
-            Apprenti développeur, spécialisé dans l'utilisation du bon outil. 
-            Fort d'une expérience variée, je suis à la recherche de nouveaux défis pour développer et mettre en pratique mes compétences.
+          Compétent en méthodes et optimisation des processus, avec une forte orientation vers l'innovation et les nouvelles technologies. 
+          Expérience confirmée en gestion de maintenance et amélioration continue. 
+          Passionné par l'industrie du futur et les solutions connectées.
           </Text>
         </View>
         
         <View>
-          <Text style={styles.sectionTitle}>Expérience Professionnelle</Text>
+          <Text style={styles.sectionTitle}>Parcours</Text>
           {experienceData.map((exp, index) => (
             <View key={index} style={styles.experienceItem}>
               <Text style={styles.companyName}>{exp.society}</Text>
