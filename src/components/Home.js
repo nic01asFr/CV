@@ -65,11 +65,13 @@ function Home() {
             <h1>Nicolas LAVAL</h1>
           </Parallax>
           <Parallax translateY={['0%', '200%']} startScroll={100} endScroll={0}>
-            <h2>Apprenti développeur Web</h2>
+            <h2>Technicien Méthodes et Innovation</h2>
           </Parallax>
           <Parallax translateY={['0%', '350%']} startScroll={100} endScroll={0}>
             <p>
-              Bienvenue sur mon CV en ligne ! Fort d'un parcours atypique, j'ai toujours cherché à résoudre des problèmes techniques en utilisant les outils informatiques adaptés. Aujourd'hui, je souhaite me professionnaliser dans le développement web pour apporter des solutions innovantes aux entreprises. Découvrez mon parcours unique en remontant cette page, où chaque expérience met en lumière les compétences clés que j'ai acquises, tant dans ma vie professionnelle que scolaire.
+              Compétent en méthodes et optimisation des processus, avec une forte orientation vers l'innovation et les nouvelles technologies. 
+              Expérience confirmée en gestion de maintenance et amélioration continue. 
+              Passionné par l'industrie du futur, l'automatisation et les solutions connectées.
             </p>
           </Parallax>
         </ParallaxContent>
